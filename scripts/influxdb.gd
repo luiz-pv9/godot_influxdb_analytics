@@ -24,6 +24,11 @@ var HTTPHelper = preload("http_helper.gd")
 # for dealing with HTTP requests.
 var http_helper = null
 
+# If there is any property that is the same across all events (user_id, app_name, etc)
+# it's better to set in the global_properties.
+# This hash will be merged into every event before sending them.
+var global_properties = {}
+
 # Constructor. Initializes host and port that InfluxDB is running.
 func _init(host="localhost", port=8083):
 	http_helper = HTTPHelper.new(host, port)
